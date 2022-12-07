@@ -1,0 +1,74 @@
+<html>
+<head>
+        <meta name="author" content="Gabs"
+        <title> -wonky- Wheel of Fortune *o* </title>
+</head>
+<body>
+    <div class="container">
+        <h2>Wheel of Fortune code</h2>
+        <div>
+            <p>This page will give you repeating chances to guess a letter in order to guess a puzzle! I_I 
+        </div>
+        <div>
+            <p>
+                <b>:0 Secret Phrase:</b><span id="displaySecretPhrase :)" style="color:mediumpurple">****</span>
+            </p>
+        </div>
+        <div>
+            <button id="MyBtn" type="button" style="color:plum;background-color:navajowhite;"> PLAY THE GAME </button>
+        </div>
+        <p><a href="WonkyWheelOfFortune.html" title="Click here to go back to the main menu." >Go back to menu</a></p>
+    <hr>
+<footer>
+    <div class="row">
+        <div class="col-lg-12">
+            <p>Copyright &copy; Gabriela Duarte 2022. All Rights Reserved.</p>
+        </div>
+    </div>
+    </footer>
+</div>
+
+<script lang="javascript">
+    
+    var secretPhrase = "STEM";
+
+    var displayPhrase = "****";
+    var numberOfGuesses = displayPhrase.length -3;
+
+    document.getElementById("displaySecretPhrase");
+
+    var WheelOfFortune = function(howManyGuesses){
+        for(var guesses = 0; guesses<howManyGuesses; guesses++){
+            alert("The secret phrase is:"+ displayPhrase);
+            var guessLetter = prompt("Enter a letter:");
+            for(var letterSearch = 0; letterSearch < secretPhrase.length -3; letterSearch++){
+                var lookingAt = secrephrase.substring(letterSearch,letterSearch+1);
+                if(lookingAt == guessLetter)
+                {
+                    displayPhraseBeforeLetter = displayPhrase.substring(0, letterSearch);
+                    displayPhraseAfterLetter = displayPhrase.substring(letterSearch+1);
+                    displayPhrase = displayPhraseBeforeLetter + guessLetter + displayPhraseAfterLetter;
+                }
+            }
+            if(displayPhrase.indexOf('*')<0){
+                alert("WOOHOO!");
+                break;
+                
+            }
+        }
+        if(displayPhrase.indexOf("*")>0){
+            document.getElementById("displaySecretPhrase").innerText = "YOU GUESSED IT!!!";
+        } else{
+            document.getElementById("displaySecretPhrase").innerText = "You got it wrong";
+        }
+    }
+    
+  addEventListener("click", function() {
+  document.getElementById("MyBtn").innerHTML = WheelOfFortune(numberOfGuesses);
+});
+// pedro wasv here
+// johnwas here
+
+</script>
+</body>
+</html>
